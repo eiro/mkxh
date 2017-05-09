@@ -41,4 +41,4 @@ leaf_set () {
     echo "$2" > "$1"
 }
 
-tree_new () { eval "$1=$( mktemp -d "$2" )" ; }
+tree_new () { eval "$1=$( mktemp -d -- "$2" )" ; }
