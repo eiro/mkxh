@@ -12,10 +12,10 @@ definitions
 =cut
 
 leaf_ready () {
-    # exists as a file ? then job's done
+    # exists as a regular file ? then job's done
     test -f "$1" && return
 
-    # exists as a file ? then it can't be a leaf
+    # exists as a directory ? then it can't be a leaf
     test -d "$1" && { false; return; }
 
     # if there is a '/' in the name, there is a dirname
@@ -26,7 +26,7 @@ leaf_ready () {
     # more to do.
 
     # else, ensure the dirname exists
-    test "${1%%*/*}" || mkdir -p "${1%/*}"
+    test "${1%%*/*}" || mkdir -p -- "${1%/*}"
 
 }
 
@@ -41,4 +41,4 @@ leaf_set () {
     echo "$2" > "$1"
 }
 
-tree_new () { eval "$1=$( mktemp -d $2 )" ; }
+tree_new () { eval "$1=$( mktemp -d -- "$2" )" ; }
