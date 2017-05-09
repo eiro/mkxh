@@ -15,7 +15,7 @@ leaf_ready () {
     # exists as a file ? then job's done
     test -f "$1" && return
 
-    # exists as a file ? then it can't be a leaf
+    # exists as a directory ? then it can't be a leaf
     test -d "$1" && { false; return; }
 
     # if there is a '/' in the name, there is a dirname
