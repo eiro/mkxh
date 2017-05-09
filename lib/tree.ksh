@@ -12,7 +12,7 @@ definitions
 =cut
 
 leaf_ready () {
-    # exists as a file ? then job's done
+    # exists as a regular file ? then job's done
     test -f "$1" && return
 
     # exists as a directory ? then it can't be a leaf
