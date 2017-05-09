@@ -26,7 +26,7 @@ leaf_ready () {
     # more to do.
 
     # else, ensure the dirname exists
-    test "${1%%*/*}" || mkdir -p "${1%/*}"
+    test "${1%%*/*}" || mkdir -p -- "${1%/*}"
 
 }
 
@@ -41,4 +41,4 @@ leaf_set () {
     echo "$2" > "$1"
 }
 
-tree_new () { eval "$1=$( mktemp -d $2 )" ; }
+tree_new () { eval "$1=$( mktemp -d "$2" )" ; }
