@@ -1,6 +1,4 @@
 addons:
     apt:
-        packages:
-            - perl
-            - mksh
+        packages: {perl, mksh}
 script: PATH=$PATH:lib prove -r -e mksh
