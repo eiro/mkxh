@@ -1,4 +1,3 @@
-langage: c
 addons:
     apt:
         packages:
