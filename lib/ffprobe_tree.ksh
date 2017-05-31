@@ -18,13 +18,17 @@ ffprobe_dump_in () {
     ffprobe_dump_for "$2" | ( cd "$1"; ffprobe_dump_eval ; )
 }
 
+: <<\=cut
 
-# store=/dev/shm/videos
-# mkdir $store
-# tree_new video $store/XXXXXXXX
-# ffprobe_all_as_tree $video "1vywRC/myvideo.mp4"
-# exit
-# examples (wip documentation)
-# ffprobe_ls decoders | ffprobe_by_name 4xm
-# ffprobe_ls decoders | ffprobe_by_name cuvid
+=head1 examples
+
+=head2 in memory dump of all informations about a media
+
+    store=/dev/shm/videos
+    mkdir $store
+    tree_new video $store/XXXXXXXX
+    ffprobe_all_as_tree $video my_cool.mp4
+
+
+=cut
 
